@@ -15,7 +15,7 @@ for t in range(1, T+1):
             grid[i][j] = t
 
     if x + w > max_x : max_x = x + w
-    if y + h > max_y : max_y = y + h
+    if y + h > max_y : ma_y = y + h
 
 count = [0] * (T+1)
 
