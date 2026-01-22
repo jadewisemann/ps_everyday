@@ -1,0 +1,1 @@
+print("\n".join(sorted(list(set([input() for _ in range(int(input()))])),key= lambda el: (len(el), el))))
