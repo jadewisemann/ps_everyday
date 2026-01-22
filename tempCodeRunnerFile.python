@@ -1,3 +1,2 @@
-a = 'list'
-
-b, c = a.split()
+for i, a in enumerate(['a', 'b', 'c']):
+    print(i, a)
