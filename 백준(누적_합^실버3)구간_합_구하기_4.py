@@ -2,14 +2,17 @@ ip = lambda: map(int, input().split())
 
 n, m = ip()
 narr = list(ip())
-marr = [list(ip()) for _ in range(m)]
 
-prefix = [narr[0]]
+prefix = [0] * (n+1)
 
-for i in range(1, n):
-    prefix.append(prefix[i-1] + narr[i])
-prefix = [0] + prefix
+sum = 0
+for i in range(n):
+    sum += narr[i]
+    prefix[i+1] = sum
 
+output = []
+for _ in range(m):
+    l, r = ip()    
+    output.append(str(prefix[r] - prefix[l-1]))
 
-for l, r in marr:    
-    print(prefix[r] - prefix[l-1])
+print("\n".join(output))
