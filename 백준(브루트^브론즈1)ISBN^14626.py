@@ -1,12 +1,6 @@
-a, b = list(input().split('*'))
-idx = len(a)
-m = int(b[-1])
+ip = list(input().split('*'))
 
-for arr in [a + str(i) + b for i in range(10)]:
-    tmp = 0
-    for weight, el in zip([1, 3] * 6, arr[:-1]): 
-        tmp += weight * int(el)
-    
-    if m == (10 - tmp % 10) % 10:
-        print(arr[idx])
-        break
+for i in range(10):
+    if sum(w * int(d) for w, d in zip([1, 3] * 7, ip[0] + str(i) + ip[1])) % 10 == 0:
+        print(i)
+        break 
