@@ -28,3 +28,5 @@ for curr in arr:
         stk.append((curr, 1))
 
 print(ans)
+
+" ".join(etet)
