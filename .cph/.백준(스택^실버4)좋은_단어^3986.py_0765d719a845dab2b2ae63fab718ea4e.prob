@@ -1,0 +1,1 @@
+{"name":"Local: 백준(스택^실버4)좋은_단어^3986","url":"/Users/jade/pseudo HOME/ps_everyday/백준(스택^실버4)좋은_단어^3986.py","tests":[{"id":1769428907563,"input":"3\nABAB\nAABB\nABBA\n","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/jade/pseudo HOME/ps_everyday/백준(스택^실버4)좋은_단어^3986.py","group":"local","local":true}
