@@ -4,12 +4,11 @@ arr = list(map(int, input().split()))
 stk = []
 rst = []
 
-for i in range(n-1, -1, -1):
-    curr = arr[i]
+for _ in range(n):
+    curr = arr.pop()
     
     while stk and stk[-1] <= curr:
         stk.pop()
-    
     else:
         rst.append(stk[-1] if stk else "-1")
     
