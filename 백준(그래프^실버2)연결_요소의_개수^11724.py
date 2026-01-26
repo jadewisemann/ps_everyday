@@ -1,32 +1,31 @@
-def dfs(i):
-    stk = [i]
-    vis[i] = True
-    
-    while stk:
-        curr = stk.pop()
-        
-        for n in grp[curr]:
-            if vis[n]:
-                continue
-            vis[n] = True
-            stk.append(n)
+import sys
+input = sys.stdin.readline
 
+ip = lambda:  map(int, input().split())
 
-n, m = map(int, input().split())
-vis =  [False] * (n + 1)
+n, m = ip()
 
-grp = [[] for _ in range(n+1)]
+roots = list(range(n+1))
+
+def find(x):
+
+    root  = x
+    while roots[root] != root:
+        root = roots[root]
+
+    curr = x
+    while roots[curr] != root:
+        next = roots[curr]
+        roots[curr] = root
+        curr = next
+
+    return root
 
 for _ in range(m):
-    a, b = map(int, input().split())
-    grp[a].append(b)
-    grp[b].append(a)
-count = 0
+    u, v = ip()
 
-for i in range(1, n + 1):
-    if not vis[i]:
-        dfs(i)
-        count += 1
-
-print(count)
-
+    ru, rv = find(u), find(v)
+    if ru != rv:
+        roots[rv] = ru
+    
+print(sum(1 for i in range(1, n+1) if roots[i] == i))
