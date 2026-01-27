@@ -29,5 +29,3 @@ for cmd in tokens:
 
     
 print("\n".join(map(str, results)))
-
-m
