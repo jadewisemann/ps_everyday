@@ -1,0 +1,35 @@
+name: Update Problem Status
+
+on:
+  push:
+    branches: [ "main", "master" ]
+    paths:
+      - '*.py'
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # <--- [중요] 0으로 설정해야 과거 커밋 날짜를 가져올 수 있음
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Run Update Script
+      run: python update_readme.py
+        
+    - name: Commit changes
+      run: |
+        git config --global user.name "Auto-Update Bot"
+        git config --global user.email "bot@github.com"
+        git add README.md grass_graph.svg
+        # 변경사항이 있을 때만 커밋
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Update README & Grass" && git push)
