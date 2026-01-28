@@ -14,7 +14,7 @@ def solution(dirs):
         nx, ny = sx + dx, sy + dy
         if nx < -5 or nx > 5 or ny < -5 or ny > 5:
             continue
-        vis.add((sx,sy, nx, ny))
+        vis.add((sx,sy, nx, ny))    
         vis.add((nx, ny, sx, sy))
         sx, sy = nx, ny
         
