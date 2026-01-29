@@ -1,0 +1,1 @@
+{"name":"Local: 코드트리(우선순위큐^70xp)중앙값","url":"f:\\_02(career)coding_test\\ps_everyday\\코드트리(우선순위큐^70xp)중앙값.py","tests":[{"id":1769655944564,"input":"2\n5\n1 2 3 4 5\n7\n7 6 5 4 3 2 1","output":"1 2 3\n7 6 5 4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\_02(career)coding_test\\ps_everyday\\코드트리(우선순위큐^70xp)중앙값.py","group":"local","local":true}
