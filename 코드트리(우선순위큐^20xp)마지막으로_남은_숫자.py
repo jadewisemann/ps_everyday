@@ -17,7 +17,7 @@ while len(mxh) >= 2:
     a = -hq.heappop(mxh)
     b = -hq.heappop(mxh)
     diff  = a - b
-    hq.heappush(mxh, -diff)
+    if diff:
+        hq.heappush(mxh, -diff)
 
-ans = -hq.heappop(mxh)
-print(ans)
+print(-mxh[0] if mxh else -1)
