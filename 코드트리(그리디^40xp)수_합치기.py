@@ -13,4 +13,9 @@ for _ in range(n-1):
     cnt += a + b
     hq.heappush(arr, a + b)
     
-print(cnt) 
+print(cnt)
+
+a, b = map(int, input().split())
+a = list(map(int, input().split()))
+
+iter(arr)
