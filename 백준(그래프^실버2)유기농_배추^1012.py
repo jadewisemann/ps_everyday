@@ -13,7 +13,6 @@ for _ in range(int(input())):
         count += 1
 
         stack = [(x,y)]
-
         while stack:
             sx, sy = stack.pop()
 
