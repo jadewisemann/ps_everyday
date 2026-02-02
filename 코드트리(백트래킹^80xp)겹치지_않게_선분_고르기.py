@@ -24,7 +24,6 @@ def sel(curr, points):
     
     for el in candi:
         if el not in points:
-            
             sel([*curr, el])  
 
 sel([[el] for el in candi])
