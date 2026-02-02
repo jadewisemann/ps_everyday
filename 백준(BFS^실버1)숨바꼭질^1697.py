@@ -7,7 +7,6 @@ vis = set()
 
 while dq:
     curr, time = dq.popleft()
-    # vis.add(new_curr)
 
     if curr == k:
         print(time)
