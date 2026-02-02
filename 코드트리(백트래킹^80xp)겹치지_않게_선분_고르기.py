@@ -7,25 +7,23 @@ for _ in range(n):
     x2.append(b)
 
 # Please write your code here.
+def sel(curr, idx):
 
+    if idx >= n:
+        return len(curr)
 
-candi = [i for i in range(n)]
-
-cnts = []
-
-def sel(curr, points):
-    # points
+    f = True
+    for sidx in curr:
+        if not  (x2[idx]  < x1[sidx] or  x2[sidx] < x1[idx]):
+            f = False
+            break
     
-    # base
-    len_curr = len(curr)
-    if len_curr >= n:
-        cnts.append(len_curr)
-        return
-    
-    for el in candi:
-        if el not in points:
-            sel([*curr, el])  
+    rst = 0
+    if f:
+        curr.append(idx)
+        rst = sel(curr, idx + 1)
+        curr.pop()
 
-sel([[el] for el in candi])
+    return max(rst, sel(curr, idx + 1))
 
-print(max(cnts))
+print(sel([], 0))
