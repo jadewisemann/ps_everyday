@@ -1,10 +1,16 @@
-n = int(input())
-arr = [[0, 0, 0]] + [list(map(int, input().split())) for _ in range(n)]
-dp = [[0, 0, 0] for _ in range(n + 1)]
-
-dp[1] = arr[1]
-for idx in range(2, n+1):
-    for jdx in range(3):
-        dp[idx][jdx] = min(dp[idx - 1][jdx - 1], dp[idx - 1][jdx - 2]) + arr[idx][jdx]
-print(min(*dp[n]))
-
+for tc in range(int(input())):
+    counts = [0] * 10
+    n = int(input())
+ 
+    for card in input():
+        card = int(card)
+        counts[card] += 1
+ 
+    max_card, max_count = 0, 0
+    for curr_card in range(1, 10):
+        curr_count = counts[curr_card]
+        if curr_count >= max_count:
+            max_count = curr_count
+            max_card = curr_card 
+      
+    print(f'#{tc + 1} {max_card} {max_count}')
