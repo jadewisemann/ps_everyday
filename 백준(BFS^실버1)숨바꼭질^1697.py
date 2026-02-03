@@ -1,23 +1,21 @@
-from collections import deque
+from collections import deque, defaultdict
 
 n, k = map(int, input().split())
 
-dq = deque([(n, 0)])
-vis = set()
+d = defaultdict(int)
 
-while dq:
-    curr, time = dq.popleft()
+queue = deque([n])
+d[n] = 0
 
-    if curr == k:
-        print(time)
+while queue:
+    x = queue.popleft()
+
+    if x == k:
         break
 
-    for new_curr in [curr - 1, curr + 1, curr * 2]:
-        if 0 <= new_curr <= 10**5 and new_curr not in vis:
-            dq.append((new_curr, time + 1))
-            vis.add(new_curr)
-
-
-
+    for nx in [x - 1, x + 1, x * 2]:
+        if 0 <= nx <= 100000 and nx not in d:
+            d[nx] = d[x] + 1
+            queue.append(nx)
     
-   
+print(d[k])
