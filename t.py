@@ -1,26 +1,20 @@
 for _ in range(10):
-    tc = int(input())
-    grp = [list(map(int, input().split())) for _ in range(100)]
+    tc=int(input().strip())
+    arr=[list(map(int, input().split())) for _ in range(100)]
+    cnt=0
 
-    max_val = 0
+    # 대각선
+    total_diag1, total_diag2 = 0, 0
+    for r in range(100):
+        total_diag1 +=arr[r][r]
+        total_diag2 +=arr[r][99-r]
+        cnt = max(cnt, total_diag1, total_diag2)
+        
+        # 행 열
+        total_col, total_row = 0, 0
+        for c in range(100): 
+            total_col +=arr[r][c]
+            total_row +=arr[c][r]
+            cnt = max(cnt, total_col,total_row)
 
-    diag1, diag2 = 0, 0
-    for i in range(100):
-        row_sum, col_sum = 0, 0
-        for j in range(100):
-            row_sum += grp[i][j]
-            col_sum += grp[j][i]
-
-            if i == j: 
-                diag1 += grp[i][j]
-            if i + j == 99:
-                diag2 += grp[i][j]
-
-        max_val = max(max_val, row_sum, col_sum)
-
-    max_val = max(max_val, diag1, diag2)
-
-    print(f'#{tc} {max_val}')
-
-
-
+    print(f'#{tc} {cnt}')
