@@ -1,23 +1,26 @@
-for tc in range(10):
-    towers = [0] * 101
-    n = int(input())
-    min_pointer, max_pointer = 101, 0
-    for tower in map(int, input().split()):
-        towers[tower] += 1
-        if tower > max_pointer:
-            max_pointer = tower
-        if tower < min_pointer:
-            min_pointer = tower
+for _ in range(10):
+    tc = int(input())
+    grp = [list(map(int, input().split())) for _ in range(100)]
 
-    for _ in range(n):
-        towers[max_pointer] -= 1
-        towers[max_pointer - 1] += 1
-        if towers[max_pointer] == 0:
-            max_pointer -= 1
+    max_val = 0
 
-        towers[min_pointer] -= 1
-        towers[min_pointer + 1] += 1
-        if towers[min_pointer] == 0:
-            min_pointer += 1
-    
-    print(f'#{tc + 1} {max_pointer - min_pointer}')
+    diag1, diag2 = 0, 0
+    for i in range(100):
+        row_sum, col_sum = 0, 0
+        for j in range(100):
+            row_sum += grp[i][j]
+            col_sum += grp[j][i]
+
+            if i == j: 
+                diag1 += grp[i][j]
+            if i + j == 99:
+                diag2 += grp[i][j]
+
+        max_val = max(max_val, row_sum, col_sum)
+
+    max_val = max(max_val, diag1, diag2)
+
+    print(f'#{tc} {max_val}')
+
+
+
