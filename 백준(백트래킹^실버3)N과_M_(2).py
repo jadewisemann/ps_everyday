@@ -1,16 +1,12 @@
 n, m = map(int, input().split())
-nums = [i + 1 for i in range(n)]
 
-result = []
 
-def a(num_length, start_number):
-    if num_length == m:
-        print(" ".join(map(str, result)))
+def a(start_number, number_arr):
+    if len(number_arr) == m:
+        print(" ".join(map(str, number_arr)))
         return 
     
     for idx in range(start_number, n + 1):
-        result.append(idx)
-        a(num_length + 1, idx + 1)
-        result.pop()
+        a(idx + 1, number_arr + [idx])
 
-a(0, 1) 
+a(1, []) 
