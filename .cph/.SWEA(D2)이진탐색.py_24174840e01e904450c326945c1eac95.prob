@@ -1,0 +1,1 @@
+{"name":"Local: SWEA(D2)이진탐색","url":"d:\\_02(career)coding_test\\ps_everyday\\SWEA(D2)이진탐색.py","tests":[{"id":1770259046120,"input":"3\n400 300 350\n1000 299 578\n1000 222 888\n  ","output":"#1 A\n#2 0\n#3 A "}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\_02(career)coding_test\\ps_everyday\\SWEA(D2)이진탐색.py","group":"local","local":true}
