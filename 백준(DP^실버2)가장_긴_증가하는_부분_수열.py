@@ -1,10 +1,25 @@
 n = int(input())
 arr = list(map(int, input().split()))
 
-dp = [1] * n
 
-for i in range(n):
-    for j in range(i):
-        if arr[i] > arr[j]:
-            dp[i] =  max(dp[i], dp[j] + 1)
-print(max(dp))
+tmp = [arr[0]]
+
+def binary_search(arr, target):
+    l, r = 0, len(arr) - 1
+    
+    while l <= r:        
+        mid = (l + r) // 2
+        if  arr[mid] >= target:
+            r = mid - 1
+        else:
+            l = mid + 1
+
+    return l
+
+for i in range(1, n):
+    if arr[i] > tmp[-1]:
+        tmp.append(arr[i])
+    elif arr[i] < tmp[-1]:
+        tmp[binary_search(tmp, arr[i])] = arr[i]
+
+print(len(tmp))
