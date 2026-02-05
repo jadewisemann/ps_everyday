@@ -10,5 +10,5 @@ for i in range(1, n):
             dp[i][j] = max(dp[i][j], dp[i - 1][j] + arr[i][j])
         if j > 0:
             dp[i][j] = max(dp[i][j], dp[i - 1][j-1] + arr[i][j])
-        
+
 print(max(dp[n-1]))
