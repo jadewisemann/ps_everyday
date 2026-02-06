@@ -7,7 +7,7 @@ for i in range(0, n - 2):
     for j in range(0, n - 2):
         
         tmp = 0
-        for r in range(3):
+        for r in range(3):    
             for c in range(3):
                 tmp += grid[i + r][j + c]
 
