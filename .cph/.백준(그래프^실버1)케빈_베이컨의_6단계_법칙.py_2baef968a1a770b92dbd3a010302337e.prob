@@ -1,0 +1,1 @@
+{"name":"Local: 백준(그래프^실버1)케빈_베이컨의_6단계_법칙","url":"d:\\_02(career)coding_test\\ps_everyday\\백준(그래프^실버1)케빈_베이컨의_6단계_법칙.py","tests":[{"id":1770340843647,"input":"5 5\n1 3\n1 4\n4 5\n4 3\n3 2\n","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\_02(career)coding_test\\ps_everyday\\백준(그래프^실버1)케빈_베이컨의_6단계_법칙.py","group":"local","local":true}

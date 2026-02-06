@@ -1,0 +1,1 @@
+{"name":"Local: SWEA(D4)쇠막대기_자르기","url":"d:\\_02(career)coding_test\\ps_everyday\\SWEA(D4)쇠막대기_자르기.py","tests":[{"id":1770347513660,"input":"2\n()(((()())(())()))(())\n(((()(()()))(())()))(()())","output":"#1 17\n#2 24"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\_02(career)coding_test\\ps_everyday\\SWEA(D4)쇠막대기_자르기.py","group":"local","local":true}
