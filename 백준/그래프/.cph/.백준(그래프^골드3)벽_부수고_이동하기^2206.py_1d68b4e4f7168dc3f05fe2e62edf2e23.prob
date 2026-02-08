@@ -1,0 +1,1 @@
+{"name":"Local: 백준(그래프^골드3)벽_부수고_이동하기^2206","url":"c:\\home\\ps_everyday\\백준\\그래프\\백준(그래프^골드3)벽_부수고_이동하기^2206.py","tests":[{"id":1770554118775,"input":"6 4\n0100\n1110\n1000\n0000\n0111\n0000\n","output":"15"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\home\\ps_everyday\\백준\\그래프\\백준(그래프^골드3)벽_부수고_이동하기^2206.py","group":"local","local":true}
