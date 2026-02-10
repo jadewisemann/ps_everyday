@@ -6,7 +6,7 @@ for tc in range(int(input())):
             sum(
                 grid[i][k] + grid[k][j]
                 for k in range(n)
-            ) - grid[i][j]
+            ) - grid[i]
             for i in range(n)
             for j in range(n)
         )
