@@ -1,8 +1,12 @@
-dp = [0, 1, 3]
+memo = {
+    1: 1,
+    2: 3,
+}
+
+def square(n):
+    if n not in memo:
+        memo[n] = square(n - 1) + square(n - 2) * 2
+    return memo[n]
 
 for tc in range(int(input())):
-    length = int(input()) // 10
-    for i in range(len(dp), length + 1):
-        dp.append(dp[i - 1] + dp[i - 2] * 2)
-
-    print(f'#{tc + 1} {dp[length]}') 
+    print(f'#{tc + 1} {square(int(input()) // 10)}') 
