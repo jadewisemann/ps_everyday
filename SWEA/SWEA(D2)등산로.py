@@ -5,7 +5,7 @@ for tc in range(int(input())):
 
     for r in range(n):
         for c in range(n):
-            si, sj, cnt = r, c, 1
+            si, sj, cnt = r, c, 
             while True:
                 candidates = []
                 for di, dj in ((0, 1), (0, -1), (1, 0), (-1, 0)):
