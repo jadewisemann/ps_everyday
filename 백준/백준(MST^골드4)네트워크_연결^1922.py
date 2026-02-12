@@ -13,7 +13,7 @@ def union(parents, x, y):
     root_x, root_y  = find(parents, x), find(parents, y)
 
     if  root_x == root_y:
-        return Falsez
+        return False
 
     if root_x < root_y:
         parents[root_y] = root_x
