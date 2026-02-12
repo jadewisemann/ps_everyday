@@ -1,0 +1,1 @@
+{"name":"Local: 백준(MST^골드4)최소_스패닝_트리^1179","url":"/Users/jade/pseudo HOME/ps_everyday/백준/백준(MST^골드4)최소_스패닝_트리^1179.py","tests":[{"id":1770807151591,"input":"3 3\n1 2 1\n2 3 2\n1 3 3\n","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/jade/pseudo HOME/ps_everyday/백준/백준(MST^골드4)최소_스패닝_트리^1179.py","group":"local","local":true}
