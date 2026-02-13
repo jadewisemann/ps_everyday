@@ -14,7 +14,7 @@ for length in range(n):
 
 
 res = []
-for _ in range(int(input())):
+for _ in range(int(input())):   
     s, e = map(int, input().split())
     res.append(str(int(dp[s - 1][e - 1])))
 
