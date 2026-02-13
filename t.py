@@ -1,42 +1,38 @@
+# Read 4x4 grid
+grid = [list(map(int, input().split())) for _ in range(4)]
 
+# Read direction
+dir = input()
 
-n, m, q = map(int, input().split())
+# code here
 
-# Create 2D array for building state
-a = [list(map(int, input().split())) for _ in range(n)]
+def rotate(grid):
+    return [list(row[::-1]) for row in zip(*grid)]
+    
+def push_left(grid):
+    new_grid = []
+    for row in grid:
+        nums = [val for val in row if val != 0]
+        merged = []
+        idx =  while idx < len(nums):
+            if idx + 1 < len(nums) and nums[idx] == nums[idx+1]:
+                merged.append(nums[idx] * 2)
+                idx += 2
+            else:
+                merged.append(nums[idx])
+                idx += 1
+        new_grid.append(merged + [0] * (4 - len(merged)))
+    return new_grid
 
-# Process wind queries
-winds = [tuple(map(int, input().split())) for _ in range(q)]
+rotate_count = {'L': 0, 'D': 1, 'R': 2, 'U': 3}[dir]
 
-# Please write your code here.
-for wind in winds:
-    ax, ay, bx, by = map(lambda x: x - 1, wind)
-    tmp = a[ax][ay]
+for _ in range(rotate_count):
+    grid = rotate(grid)
+    
+grid = push_left(grid)
 
-    for i in range(ax, bx):
-        a[i][ay] = a[i + 1][ay]
-
-    for j in range(ay, by):
-        a[bx][j] = a[bx][j + 1]
-
-    for i in range(bx, ax, -1):
-        a[i][by] = a[i - 1][by]
-
-    for j in range(by, ay, -1):
-        a[ax][j] = a[ax][j - 1]
-
-    a[ax][ay + 1] = tmp
-
-    copied = [row[:] for row in a]
-
-    for i in range(ax, bx + 1):
-        for j in range(ay, by + 1):
-            a[i][j] = (lambda x: sum(x) // len(x))([
-                copied[i + di][j + dj]
-                for di, dj in ((- 1, 0), (1, 0), (0, - 1), (0, 1))
-                if 0 <= i + di < n and 0 <= j + dj < m
-                ] + [copied[i][j]]
-            )
-            
-for row in a:
-    print(*row)
+for _ in range((4 - rotate_count) % 4):
+    grid = rotate(grid)
+    
+for row in grid:
+    print(*(row))
