@@ -5,7 +5,7 @@ nums = [i + 1 for i in range(n)]
 curr = 1
 stk = []
 rst = []
-
+flag = True
 for _ in range(n):
     target = int(input())
 
@@ -19,8 +19,8 @@ for _ in range(n):
         rst.append("-")
     
     else:
-        rst = []
+        flag = False
         break
 
 
-print("\n".join(rst) if rst else "NO")
+print("\n".join(rst) if flag else "NO")
