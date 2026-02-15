@@ -1,47 +1,71 @@
+import sys
+
+input = sys.stdin.readline
 MAX_COUNT = 10
 
+def solve():
+    line = input().strip()
+    if not line: return
+    n = int(line)
+    initial_board = tuple(tuple(map(int, input().split())) for _ in range(n))
 
-def merge(line):
-    n = len(line)
-    line = [x for x in line if x]
+    ans = [0]
+    memo = {}
 
-    new_line = []
-    
-    i = 0
-    while i < len(line):
-        if i + 1 < len(line) and line[i] == line[i+1]:
-            new_line.append(line[i] * 2)
-            i += 2
-        else:
-            new_line.append(line[i])
-            i += 1
+    for row in initial_board:
+        for val in row:
+            if val > ans[0]:
+                ans[0] = val
+
+    def dfs(count, board, curr_max):
+        if curr_max * (2 ** (MAX_COUNT - count)) <= ans[0]:
+            return
+
+        if memo.get(board, -1) >= (MAX_COUNT - count):
+            return
+        memo[board] = MAX_COUNT - count
+
+        if count == MAX_COUNT:
+            return
+
+        curr_board = board
+        for _ in range(4):
+            new_board = []
+            is_changed = False
+            max_in_move = 0
             
-    return new_line + [0] * (n - len(new_line))
+            for row in curr_board:
+                temp = [x for x in row if x]
+                merged = []
+                idx = 0
+                while idx < len(temp):
+                    if idx + 1 < len(temp) and temp[idx] == temp[idx+1]:
+                        val = temp[idx] * 2
+                        merged.append(val)
+                        if val > max_in_move: max_in_move = val
+                        idx += 2
+                    else:
+                        val = temp[idx]
+                        merged.append(val)
+                        if val > max_in_move: max_in_move = val
+                        idx += 1
+                
+                merged += [0] * (n - len(merged))
+                t_row = tuple(merged)
+                new_board.append(t_row)
+                if not is_changed and t_row != row:
+                    is_changed = True
+            
+            final_max = max(max_in_move, curr_max)
+            if final_max > ans[0]:
+                ans[0] = final_max
 
-def dfs(count, board, curr_best):
-    local_max = max(map(max, board))
+            if is_changed:
+                dfs(count + 1, tuple(new_board), final_max)
+            
+            curr_board = tuple(zip(*curr_board[::-1]))
 
-    if local_max * (2 ** (MAX_COUNT - count)) <= curr_best:
-        return curr_best
-    
-    if count == MAX_COUNT:
-        return max(local_max, curr_best)
-    
-    for _ in range(4):
-        moved_board = [merge(row) for row in board]
+    dfs(0, initial_board, ans[0])
+    print(ans[0])
 
-        if moved_board != board:
-            curr_best = dfs(count + 1, moved_board, curr_best)
-
-        board = [list(x) for x in zip(*board[::-1])]
-
-    return curr_best
-
-import sys
-input = sys.stdin.readline
-
-n = int(input())
-board = [list(map(int, input().split())) for _ in range(n)]
-ans = 0
-
-print(dfs(0, board, 0))
+solve()
