@@ -1,20 +1,33 @@
 
-def slide(grid, turn):
-    rotate_90 = lambda grid: [list(row) for row in zip(*grid[::-1])]
-    slide_left = lambda row: ([x for x in row if x!= 0] + [0] * row.count(0))
+def slide(grid, turn, n):
+    curr_dir = turn % 4
+    new_grid = [[0] * n for _ in range(n)]
 
-    temp_grid = grid
-    rot_cnt = {0: 1, 1: 0, 2: 3, 3: 2}[turn % 4]
+    if curr_dir == 0:
+        for j in range(n):
+            temp = [grid[i][j] for i in range(n) if grid[i][j] != 0]
+            for i in range(len(temp)):
+                new_grid[n - len(temp) + i][j] = temp[i]
 
-    for _ in range(rot_cnt):
-        temp_grid = rotate_90(temp_grid)
-    
-    temp_grid = [slide_left(row) for row in temp_grid]
+    elif curr_dir == 1:
+        for i in range(n):
+            temp = [el for el in grid[i] if el != 0 ]
+            for j in range(len(temp)):
+                new_grid[i][j] = temp[j]
 
-    for _ in range((4 - rot_cnt) % 4):
-        temp_grid = rotate_90(temp_grid)
-    
-    return temp_grid
+    elif curr_dir == 2:
+        for j in range(n):
+            temp = [grid[i][j] for i in range(n) if grid[i][j] != 0]
+            for i in range(len(temp)):
+                new_grid[i][j] = temp[i]
+
+    elif curr_dir == 3:
+        for i in range(n):
+            temp = [el for el in grid[i] if el != 0 ]
+            for j in range(len(temp)):
+                new_grid[i][n - len(temp) + j] = temp[j]
+
+    return new_grid
 
 
 def fire(grid, n, turn, curr_line):
@@ -68,12 +81,12 @@ def explode(grid, ii, ij, n):
 
 
 def simulate(grid, n, turn, curr_line):
-    grid = slide(grid, turn)
+    grid = slide(grid, turn, n)
     target = fire(grid, n, turn, curr_line)
     if target:
         explode(grid, target[0], target[1], n)
     
-    grid = slide(grid, turn)
+    grid = slide(grid, turn, n)
     return grid
 
 
@@ -100,6 +113,8 @@ def solve(turn, curr_grid, k, n):
         next_grid = simulate([row[:] for row in curr_grid], n, turn, i)
         solve(turn + 1, next_grid, k, n)
 
+import sys
+input = sys.stdin.readline
 
 k, n = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
