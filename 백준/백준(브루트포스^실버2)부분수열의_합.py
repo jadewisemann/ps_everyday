@@ -1,7 +1,6 @@
-ip = lambda: map(int, input().split())
 
-n, s = ip()
-arr = list(ip())
+n, s = map(int, input().split())
+arr = list(map(int, input().split()))
 
 def dfs(idx, current_sum):
     if idx == n:
