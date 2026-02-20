@@ -22,4 +22,4 @@ def union(parent, rank, x, y):
         parent[root_y] = root_x
         rank[root_x] += 1
     return True
-    
+    x   
