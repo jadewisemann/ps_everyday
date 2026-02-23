@@ -1,0 +1,1 @@
+{"name":"Local: BOJ(그리디)큰_수_만들기#16496<플래5>","url":"/Users/jade/pseudo HOME/ps_everyday/백준/그리디/BOJ(그리디)큰_수_만들기#16496<플래5>.py","tests":[{"id":1771847420316,"input":"5\n3 30 34 5 9\n","output":"9534330"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/jade/pseudo HOME/ps_everyday/백준/그리디/BOJ(그리디)큰_수_만들기#16496<플래5>.py","group":"local","local":true}
