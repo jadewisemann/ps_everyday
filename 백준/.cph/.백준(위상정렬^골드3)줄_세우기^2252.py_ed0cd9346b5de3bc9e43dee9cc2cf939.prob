@@ -1,1 +1,0 @@
-{"name":"Local: 백준(위상정렬^골드3)줄_세우기^2252","url":"/Users/jade/pseudo HOME/ps_everyday/백준/백준(위상정렬^골드3)줄_세우기^2252.py","tests":[{"id":1771063781634,"input":"3 2\n1 3\n2 3\n","output":"1 2 3\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/jade/pseudo HOME/ps_everyday/백준/백준(위상정렬^골드3)줄_세우기^2252.py","group":"local","local":true}

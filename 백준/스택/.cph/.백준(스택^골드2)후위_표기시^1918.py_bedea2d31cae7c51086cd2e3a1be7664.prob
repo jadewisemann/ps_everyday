@@ -1,1 +1,0 @@
-{"name":"Local: 백준(스택^골드2)후위_표기시^1918","url":"c:\\Users\\SSAFY\\Downloads\\ps_everyday\\백준\\스택\\백준(스택^골드2)후위_표기시^1918.py","tests":[{"id":1770613512662,"input":"A+B*C-D/E","output":"ABC*+DE/-"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\SSAFY\\Downloads\\ps_everyday\\백준\\스택\\백준(스택^골드2)후위_표기시^1918.py","group":"local","local":true}

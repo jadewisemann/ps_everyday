@@ -1,1 +1,0 @@
-{"name":"Local: 백준(구현^골드3)괄호_추가하기^16637","url":"/Users/jade/pseudo HOME/ps_everyday/백준/구현/백준(구현^골드3)괄호_추가하기^16637.py","tests":[{"id":1771495373633,"input":"9\n3+8*7-9*2\n","output":"136"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/jade/pseudo HOME/ps_everyday/백준/구현/백준(구현^골드3)괄호_추가하기^16637.py","group":"local","local":true}

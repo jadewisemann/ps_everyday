@@ -1,1 +1,0 @@
-{"name":"Local: 백준(DP^골드3)LCS_2^9252","url":"/Users/jade/pseudo HOME/ps_everyday/백준/DP/백준(DP^골드3)LCS_2^9252.py","tests":[{"id":1771064855271,"input":"ACAYKP\nCAPCAK\n","output":"4\nACAK\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/jade/pseudo HOME/ps_everyday/백준/DP/백준(DP^골드3)LCS_2^9252.py","group":"local","local":true}

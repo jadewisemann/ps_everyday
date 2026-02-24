@@ -1,1 +1,0 @@
-{"name":"Local: 백준(기하학^골드5)다각형의_면적^2166","url":"c:\\Users\\SSAFY\\Downloads\\ps_everyday\\백준\\백준(기하학^골드5)다각형의_면적^2166.py","tests":[{"id":1770622281722,"input":"4\n0 0\n0 10\n10 10\n10 0\n","output":"100.0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\SSAFY\\Downloads\\ps_everyday\\백준\\백준(기하학^골드5)다각형의_면적^2166.py","group":"local","local":true}
