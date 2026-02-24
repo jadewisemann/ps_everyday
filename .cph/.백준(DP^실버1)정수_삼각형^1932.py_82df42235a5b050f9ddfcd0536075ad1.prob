@@ -1,1 +1,0 @@
-{"name":"Local: 백준(DP^실버1)정수_삼각형^1932","url":"d:\\_02(career)coding_test\\ps_everyday\\백준(DP^실버1)정수_삼각형^1932.py","tests":[{"id":1770268024564,"input":"5\n7\n3 8\n8 1 0\n2 7 4 4\n4 5 2 6 5\n","output":"30\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\_02(career)coding_test\\ps_everyday\\백준(DP^실버1)정수_삼각형^1932.py","group":"local","local":true}
