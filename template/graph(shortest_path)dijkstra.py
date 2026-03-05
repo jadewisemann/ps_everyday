@@ -39,7 +39,7 @@ def traceback(parents, start, end):
     while curr != start:
         path.append(curr)
         curr = parents[curr]
-
+    
     path.append(start)
     return path[::-1]
 
