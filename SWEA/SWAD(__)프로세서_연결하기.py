@@ -1,64 +1,71 @@
 def solve():
     n = int(input())
+
     board = [
         list(map(int, input().split()))
         for _ in range(n)
     ]
-
+    
     cores = [
         (i, j)
-        for i in range(1, n-1)
-        for j in range(1, n-1)
-        if board[i][j] == 1
+        for i in range(1, n - 1)
+        for j in range(1, n - 1) 
+        if board[i][j] == 1 
     ]
-
-    max_cores = 0
-    min_wires = float('inf')
+    
     num_cores = len(cores)
 
-    def fill(i, j, di, dj, val):
-        cnt = 0
-        ni, nj = i + di, j + dj
-        while 0 <= ni < n and 0 <= nj < n:
-            board[ni][nj] = val
-            ni += di
-            nj += dj
-            cnt += 1
-        return cnt
-
-    def can_proceed(i, j, di, dj):
-        ni, nj = i + di, j + dj
-        while 0 <= ni < n and 0 <= nj < n:
-            if board[ni][nj] != 0:
-                return False
-            ni += di
-            nj += dj
-        return True
+    max_cores = 0
+    min_wire = float('inf')
 
     def dfs(curr_idx, core_cnt, wire_cnt):
-        nonlocal max_cores, min_wires
+        nonlocal max_cores, min_wire
+        
+        if core_cnt + (num_cores - curr_idx) < max_cores:
+            return
 
         if curr_idx == num_cores:
             if core_cnt > max_cores:
-                max_cores, min_wires = core_cnt, wire_cnt
+                max_cores = core_cnt
+                min_wire = wire_cnt
             elif core_cnt == max_cores:
-                min_wires = min(min_wires, wire_cnt)
+                min_wire = min(min_wire, wire_cnt)
             return
 
-        if (num_cores - curr_idx) + core_cnt < max_cores:
-            return
+        ci, cj = cores[curr_idx]
 
-        i, j = cores[curr_idx]
         for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            if can_proceed(i, j, di, dj):
-                dist = fill(i, j, di, dj, 2)
-                dfs(curr_idx + 1, core_cnt + 1, wire_cnt + dist)
-                fill(i, j, di, dj, 0)
+            path = []
+            ni, nj = ci + di, cj + dj
+            can_connect = True
 
+            while 0 <= ni < n and 0 <= nj < n:
+                if board[ni][nj] != 0:
+                    can_connect = False
+                    break
+
+                path.append((ni, nj))
+                ni += di
+                nj += dj
+            
+            if can_connect:
+                for pi, pj in path:
+                    board[pi][pj] = 2
+
+                dfs(curr_idx + 1, core_cnt + 1, wire_cnt + len(path))
+                
+                for pi, pj in path:
+                    board[pi][pj] = 0
+            
         dfs(curr_idx + 1, core_cnt, wire_cnt)
 
     dfs(0, 0, 0)
-    return min_wires
+    return min_wire
 
-for tc in range(int(input())):
-    print(f"#{tc + 1} {solve()}")
+def main():
+    for tc in range(int(input())):
+        min_wire = solve()
+        print(f"#{tc + 1} {min_wire}")
+
+if __name__ == "__main__":
+    main()
