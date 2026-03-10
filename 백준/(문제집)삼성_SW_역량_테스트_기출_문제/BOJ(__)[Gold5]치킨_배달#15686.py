@@ -1,81 +1,51 @@
-# gird[r < n][c < n]
-# input_r: 1 - n
-# input_c: 1 - n
+from itertools import combinations
 
-# in grid
-# > 0: empty
-# > 1: house
-# > 2: dinner
- 
-# "chicken distance" = 집에서 가장 가까운 치킨집 사이으 거리
-# 각 집은 치킨거리가 있음
-# 도시의 치킨 거리는 모든 집의 치킨 거리의 합
-
-# M개만 남기고 치킨 집 폐업
-# 즉 M개 선택
-
-
-"""
-완탐의 대상이 뭔가?
-치킨 집
-그러면 함수는 현재 cnt랑 치킨 집 인덱스 정도 가지고 있다가
-매번 치킨 거리 계산
-"""
-
-
-"""
-치킨 거리는 어캐 계산
-치킨 집에서 bfs
-그리고 더 작은 값으로 갱신
-상태 복구 로직을 어캐 짜나?
-"""
-
-from collections import deque
-
-
-def get_input():
+def get_data():
     n, m = map(int, input().split())
-    grid = [
-        list(map(int, input()))
-        for _ in range(n)
-    ]
-    return n, m, grid
+    houses = []
+    stores = []
 
+    for r in range(n):
+        row = list(map(int, input().split()))
+        for c in range(n):
+            if row[c] == 1:
+                houses.append((r, c))
+            elif row[c] == 2:
+                stores.append((r, c))
 
-def find_chicken_diner(n, grid):
-    return [
-        (r, c)
-        for r in range(n)
-        for c in range(n)
-        if grid[r][c] == 2
-    ]
+    return m, houses, stores
 
-def solve(n, m, grid, diner):
-    dists = [[0] * n for _ in range(n)]
+def solve(m, houses, stores):
+    dist_matrix = []
+    for hr, hc in houses:
+        dist_matrix.append([abs(hr - sr) + abs(hc - sc) for sr, sc in stores])
 
-    min_chicken_number = float('inf')
+    min_city_chicken_dist = float('inf')
+    num_stores = len(stores)
 
-    def get_min_chicken_number(curr_dinner_idx, dinner_cnt, curr_chicken_number):
-        nonlocal min_chicken_number
-
-        # 탐색 중단
-        if dinner_cnt == m:
-            if curr_chicken_number < min_chicken_number:
-                min_chicken_number = curr_chicken_number
-            return
+    for selected_indices in combinations(range(num_stores), m):
+        city_chicken_dist = 0
         
-        # 가지 치기
-        if curr_chicken_number >= min_chicken_number: return
+        for house_dist in dist_matrix:
+            min_dist = 101
+            for idx in selected_indices:
+                if house_dist[idx] < min_dist:
+                    min_dist = house_dist[idx]
+            
+            city_chicken_dist += min_dist
+            
+            if city_chicken_dist >= min_city_chicken_dist:
+                break
         
+        if city_chicken_dist < min_city_chicken_dist:
+            min_city_chicken_dist = city_chicken_dist
         
-        # do bfs
-
-
-        # update dist
-        # send next state
-        # restore dist
-
+    return min_city_chicken_dist
 
 def main():
-    n, m, grid  = get_input() 
-    diners = find_chicken_diner(n, grid)
+    m, houses, stores = get_data() 
+    ans = solve(m, houses, stores)
+    print(ans)
+
+if __name__ == "__main__":
+    main()
