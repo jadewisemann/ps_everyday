@@ -1,0 +1,1 @@
+{"name":"Local: SWEA(D3)이진_탐색#5207","url":"c:\\Home\\ps_everyday\\SWEA\\SWEA(D3)이진_탐색#5207.py","tests":[{"id":1773196143038,"input":"3\n3 3\n1 2 3\n2 3 4\n3 5\n1 3 5\n2 4 6 8 10\n5 5\n1 3 5 7 9\n1 2 3 4 5 ","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Home\\ps_everyday\\SWEA\\SWEA(D3)이진_탐색#5207.py","group":"local","local":true}
