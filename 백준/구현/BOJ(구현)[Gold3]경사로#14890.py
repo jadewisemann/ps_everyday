@@ -3,30 +3,22 @@ def solve(n, l, grid):
         placed = [False] * n
         
         for i in range(n - 1):
-            if road[i] == road[i + 1]: continue
 
             diff = road[i] - road[i + 1]
-            
+            if diff == 0: continue
+
             if abs(diff) > 1: return False
 
             if diff == 1:
                 target = road[i + 1]
                 for j in range(i + 1, i + 1 + l):
-                    if (
-                        j >= n 
-                        or road[j] != target 
-                        or placed[j]
-                    ): return False
+                    if j >= n or road[j] != target or placed[j]: return False
                     placed[j] = True
         
             if diff == -1:
                 target = road[i]
                 for j in range(i, i - l, -1):
-                    if (
-                        j < 0 
-                        or road[j] != target 
-                        or placed[j]
-                    ): return False
+                    if j < 0  or road[j] != target or placed[j]: return False
                     placed[j] = True
 
         return True
