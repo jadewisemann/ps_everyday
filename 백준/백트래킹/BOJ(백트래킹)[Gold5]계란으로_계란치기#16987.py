@@ -17,9 +17,7 @@ def solve():
             return
 
         # pruning
-        if broken_cnt + (n - curr) * 2 <= max_cnt:
-            return
-
+        if broken_cnt + (n - curr) * 2 <= max_cnt: return
 
         # skip broken egg
         if sturds[curr] <= 0 or broken_cnt == n - 1:
