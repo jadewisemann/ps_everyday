@@ -1,22 +1,16 @@
 import heapq as hq
 
-ip = lambda: map(int, input().split())
+n, k = map(int, input().split())
 
-n, k = ip()
+jewels = sorted([ 
+    list(map(int, input().split()))
+    for _ in range(n)
+])
 
-# 보석
-jewels = [ ]
-for _ in range(n):
-    jewels.append([*ip()])
-
-
-bags = []
-for _ in range(k):  
-    bags.append(int(input()))
-
-
-jewels.sort()
-bags.sort()
+bags = sorted([
+    int(input())
+    for _ in range(k)
+])
 
 result = 0
 tmp_jewels = []
